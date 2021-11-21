@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProgramacionMultimedia" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ProgramacionMultimedia" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primario</item>
-        <item name="colorPrimaryVariant">@color/variante</item>
+        <item name="colorPrimaryVariant">@color/grisClaro</item>
         <item name="colorOnPrimary">@color/extra</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secundario</item>
-        <item name="colorSecondaryVariant">@color/variante</item>
+        <item name="colorSecondaryVariant">@color/amarillo</item>
         <item name="colorOnSecondary">@color/extra</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

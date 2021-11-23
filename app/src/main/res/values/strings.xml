@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">ProgramacionMultimedia</string>
+    <string name="app_name">Movie List</string>
+    <string name="helloworld">Hello world</string>
+    <string name="titulo">Peaky Blinders</string>
+    <string name="tags">ACTION, MYSTERY</string>
+    <string name="descripcion">Peaky Blinders is a British period crime drama television series created by Steven Knight. Set in Birmingham, England, the series follows the exploits of the Shelby crime family in the direct aftermath of the First World War. The fictional family is loosely based on a real urban youth gang of the same name, who were active in the city from the 1890s to the early 20th century.
+        Peaky Blinders features an ensemble cast, led by Cillian Murphy, Helen McCrory, and Paul Anderson, starring as Tommy Shelby.</string>
+    <string name="rent">RENT · $4.99</string>
+    <string name="buy">BUY · $19.99</string>
 </resources>

@@ -3,48 +3,53 @@ package es.programacionmultimedia
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var log: DebugLog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        log.log("onCreate")
         setContentView(R.layout.activity_main)
     }
 
-    val TAG = "[DEBUG] "
-
     override fun onStart() {
-        Log.d(TAG, "on start")
+        log.log("on start")
         super.onStart()
     }
 
     override fun onResume() {
-        Log.d(TAG, "on resume")
+        log.log("on resume")
         super.onResume()
     }
 
     override fun onPause() {
-        Log.d(TAG, "on pause")
+        log.log("on pause")
         super.onPause()
     }
 
     override fun onRestart() {
-        Log.d(TAG, "on restart")
+        log.log("on restart")
         super.onRestart()
     }
 
     override fun onStop() {
-        Log.d(TAG, "on stop")
+        log.log("on stop")
         super.onStop()
     }
 
     override fun onDestroy() {
-        Log.d(TAG, "Actividad destruida")
+        log.log("Actividad destruida")
         super.onDestroy()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        Log.d(TAG, "on ConfigurationChanged")
+        log.log("on ConfigurationChanged")
         super.onConfigurationChanged(newConfig)
     }
 

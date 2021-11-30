@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.domain.repository.FilmRepository
+import es.programacionmultimedia.domain.usecase.GetFilmUseCase
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -12,10 +14,16 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var log: DebugLog
 
+    @Inject
+    lateinit var film: GetFilmUseCase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         log.log("onCreate")
         setContentView(R.layout.activity_main)
+        val pelicula = film.execute()
+        log.log(pelicula.title)
+
     }
 
     override fun onStart() {

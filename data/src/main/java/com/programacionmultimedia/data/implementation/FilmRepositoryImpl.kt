@@ -5,6 +5,7 @@ import es.programacionmultimedia.domain.repository.FilmRepository
 import javax.inject.Inject
 
 class FilmRepositoryImpl @Inject constructor(): FilmRepository {
-    override fun getFilm() = Film("TENET","",0.00,"")
+
+    override fun getFilm() = Film("Peaky Blinders","",0.00,"")
 
 }

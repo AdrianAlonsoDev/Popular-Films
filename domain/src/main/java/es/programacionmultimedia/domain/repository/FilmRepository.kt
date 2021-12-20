@@ -9,5 +9,6 @@ interface FilmRepository {
     /*
      * getFilm function which returns a Film object
      */
-    fun getFilm() : Film
+    fun getFilm(filmPos: Int) : Film
+    fun getFilmList(): List<Film>
 }

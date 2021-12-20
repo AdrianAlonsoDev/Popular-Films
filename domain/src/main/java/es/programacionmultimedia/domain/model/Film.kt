@@ -6,7 +6,10 @@ package es.programacionmultimedia.domain.model
  */
 data class Film(
     val title: String,
-    val imageUrl: String,
+    val genre: String,
+    val description: String,
+    val director: String,
     val rating: Double,
-    val director: String
+    val imageUrl: String,
+    val trailerUrl: String,
     )

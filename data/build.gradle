@@ -34,9 +34,9 @@ android {
 }
 
 dependencies {
-    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation "com.google.dagger:hilt-android:2.40.5"
     implementation project(path: ':domain')
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:2.40.5"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 }

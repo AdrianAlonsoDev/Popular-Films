@@ -4,7 +4,6 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
-import es.programacionmultimedia.domain.repository.FilmRepository
 import es.programacionmultimedia.domain.usecase.GetFilmListUseCase
 import es.programacionmultimedia.domain.usecase.GetFilmUseCase
 import javax.inject.Inject
@@ -13,61 +12,61 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var log: DebugLog
+    lateinit var logger: DebugLog
 
     @Inject
-    lateinit var film: GetFilmUseCase
+    lateinit var filmUseCase: GetFilmUseCase
 
     @Inject
-    lateinit var filmList: GetFilmListUseCase
+    lateinit var filmListUseCase: GetFilmListUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        log.log("onCreate")
+        logger.log("Creating Activity")
 
         setContentView(R.layout.activity_main)
 
-        val pelicula = film.execute()
-        log.log(pelicula.title)
+        val film = filmUseCase.execute(0)
+        logger.log(film.title)
 
-        val listaPeliculas = filmList.execute()
-        log.log(listaPeliculas.joinToString(","))
+        val filmListed = filmListUseCase.execute()
+        logger.log(filmListed.joinToString(","))
 
     }
 
     override fun onStart() {
-        log.log("on start")
+        logger.log("Activity has started")
         super.onStart()
     }
 
     override fun onResume() {
-        log.log("on resume")
+        logger.log("Activity was resumed")
         super.onResume()
     }
 
     override fun onPause() {
-        log.log("on pause")
+        logger.log("Activity is now paused")
         super.onPause()
     }
 
     override fun onRestart() {
-        log.log("on restart")
+        logger.log("Restarting Activity")
         super.onRestart()
     }
 
     override fun onStop() {
-        log.log("on stop")
+        logger.log("Activity has been stoped")
         super.onStop()
     }
 
     override fun onDestroy() {
-        log.log("Actividad destruida")
+        logger.log("Activity was destroyed")
         super.onDestroy()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        log.log("on ConfigurationChanged")
+        logger.log("Activity configuration changed")
         super.onConfigurationChanged(newConfig)
     }
 

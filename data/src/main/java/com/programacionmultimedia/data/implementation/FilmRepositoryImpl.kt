@@ -8,6 +8,7 @@ import javax.inject.Inject
 class FilmRepositoryImpl @Inject constructor(private val dataSource: HardCodedDataSource): FilmRepository {
 
     override fun getFilm(filmPos: Int) = dataSource.getFilm(filmPos)
+
     override fun getFilmList() = dataSource.getFilmList()
 
 

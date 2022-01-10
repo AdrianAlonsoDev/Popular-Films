@@ -3,48 +3,70 @@ package es.programacionmultimedia
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.domain.usecase.GetFilmListUseCase
+import es.programacionmultimedia.domain.usecase.GetFilmUseCase
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var logger: DebugLog
+
+    @Inject
+    lateinit var filmUseCase: GetFilmUseCase
+
+    @Inject
+    lateinit var filmListUseCase: GetFilmListUseCase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        logger.log("Creating Activity")
+
         setContentView(R.layout.activity_main)
+
+        val film = filmUseCase.execute(0)
+        logger.log(film.title)
+
+        val filmListed = filmListUseCase.execute()
+        logger.log(filmListed.joinToString(","))
+
     }
 
-    val TAG = "[DEBUG] "
-
     override fun onStart() {
-        Log.d(TAG, "on start")
+        logger.log("Activity has started")
         super.onStart()
     }
 
     override fun onResume() {
-        Log.d(TAG, "on resume")
+        logger.log("Activity was resumed")
         super.onResume()
     }
 
     override fun onPause() {
-        Log.d(TAG, "on pause")
+        logger.log("Activity is now paused")
         super.onPause()
     }
 
     override fun onRestart() {
-        Log.d(TAG, "on restart")
+        logger.log("Restarting Activity")
         super.onRestart()
     }
 
     override fun onStop() {
-        Log.d(TAG, "on stop")
+        logger.log("Activity has been stoped")
         super.onStop()
     }
 
     override fun onDestroy() {
-        Log.d(TAG, "Actividad destruida")
+        logger.log("Activity was destroyed")
         super.onDestroy()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        Log.d(TAG, "on ConfigurationChanged")
+        logger.log("Activity configuration changed")
         super.onConfigurationChanged(newConfig)
     }
 

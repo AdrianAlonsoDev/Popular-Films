@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/fondo"
             android:layout_width="0dp"
             android:layout_height="280dp"
             android:adjustViewBounds="true"
@@ -27,7 +27,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fondo" />
+            tools:srcCompat="@drawable/fondo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -36,28 +36,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/fondo">
 
             <TextView
                 android:id="@+id/titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:text="@string/titulo"
+                tools:text="@string/titulo"
                 android:textColor="@color/blanco"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/tags"
                 app:layout_constraintTop_toBottomOf="@+id/tags" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/portada"
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:layout_marginStart="16dp"
                 android:adjustViewBounds="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/portadados" />
+                tools:srcCompat="@drawable/portadados" />
 
             <TextView
                 android:id="@+id/tags"
@@ -66,9 +66,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="sans-serif-smallcaps"
-                android:text="@string/tags"
+                tools:text="@string/tags"
                 android:textColor="@color/primario"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/portada"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.widget.Button
@@ -78,7 +78,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/botonrojo"
                 android:fontFamily="sans-serif-black"
-                android:text="PG +18"
+                tools:text="PG +18"
                 android:textColor="@color/rojo"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@+id/titulo"
@@ -91,7 +91,7 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/botonpg"
                 android:fontFamily="sans-serif-black"
-                android:text="CC"
+                tools:text="CC"
                 android:textColor="@color/grisClaro"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/pg"
@@ -127,7 +127,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/descripcion"
+                tools:text="@string/descripcion"
                 android:textColor="@color/grisClaro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/botonamarillo"
-                android:text="@string/rent"
+                tools:text="@string/rent"
                 android:textColor="@color/amarillo"
                 app:layout_constraintEnd_toEndOf="@+id/descripcionTexto"
                 app:layout_constraintTop_toTopOf="@+id/alquilarBoton" />
@@ -151,7 +151,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/amarillo"
-                android:text="@string/buy"
+                tools:text="@string/buy"
                 app:layout_constraintStart_toStartOf="@+id/descripcionTexto"
                 app:layout_constraintTop_toBottomOf="@+id/descripcionTexto" />
         </androidx.constraintlayout.widget.ConstraintLayout>

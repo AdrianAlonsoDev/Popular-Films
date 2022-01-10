@@ -1,12 +1,10 @@
 package com.programacionmultimedia.data
 
 import es.programacionmultimedia.domain.model.Film
-import es.programacionmultimedia.domain.model.MessageType
-import es.programacionmultimedia.domain.repository.LoggerRepository
 import javax.inject.Inject
 
 
-class HardCodedDataSource @Inject constructor(private val loggerRepository: LoggerRepository) {
+class HardCodedDataSource @Inject constructor() {
 
 
     private val peaky = Film("Peaky Blinders","Action",
@@ -16,10 +14,6 @@ class HardCodedDataSource @Inject constructor(private val loggerRepository: Logg
     private val filmListOf = listOf(peaky)
 
     fun getFilm(posFilm: Int) : Film {
-
-        if (filmListOf.isEmpty()) {
-            loggerRepository.printLog("Film list is empty", MessageType.ERROR)
-        }
         return filmListOf[posFilm]
     }
 

@@ -3,7 +3,9 @@ package es.programacionmultimedia
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.databinding.ActivityMainBinding
 import es.programacionmultimedia.domain.usecase.GetFilmListUseCase
 import es.programacionmultimedia.domain.usecase.GetFilmUseCase
 import javax.inject.Inject
@@ -20,18 +22,43 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var filmListUseCase: GetFilmListUseCase
 
+    private var binding: ActivityMainBinding? = null
+
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        logger.log("Creating Activity")
+        logger.log("Creating Activity and binding layout")
 
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding?.portada?.setImageResource(R.drawable.portadados)
+
+        binding?.fondo?.setImageResource(R.drawable.fondo)
+
+        binding?.titulo?.text = resources.getString(R.string.titulo)
+
+        binding?.descripcionTexto?.text = resources.getString(R.string.descripcion)
+
+        binding?.cc?.text = resources.getString(R.string.CCButtonText)
+
+        binding?.pg?.text = resources.getString(R.string.pgAge)
+
+        binding?.tags?.text = resources.getString(R.string.tags)
+
+        binding?.alquilarBoton?.text = resources.getString(R.string.rent)
+
+        binding?.comprarBoton?.text = resources.getString(R.string.buy)
+
+        setContentView(binding?.root)
 
         val film = filmUseCase.execute(0)
         logger.log(film.title)
 
         val filmListed = filmListUseCase.execute()
         logger.log(filmListed.joinToString(","))
+
 
     }
 
@@ -61,7 +88,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        logger.log("Activity was destroyed")
+        logger.log("Activity was destroyed and Layout binding unlinked")
+
+        binding = null
+
         super.onDestroy()
     }
 

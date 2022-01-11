@@ -15,13 +15,12 @@ class MainViewModel @Inject constructor(
 ):
     ViewModel(), LifecycleObserver {
 
-        private val filmLiveData = MutableLiveData<Film>()
-        val film: LiveData<Film> = filmLiveData
+        private val filmLiveData = MutableLiveData<FilmDataView>()
+        val film: LiveData<FilmDataView> = filmLiveData
 
         fun loadFilm() {
-            filmLiveData.value = useCase.execute(0)
+            val loadedFilm = useCase.execute(0)
+            filmLiveData.value = FilmDataView(loadedFilm.title, loadedFilm.description)
         }
-
-
 
 }

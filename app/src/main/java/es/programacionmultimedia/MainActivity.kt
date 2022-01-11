@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.componentes.DebugLog
 import es.programacionmultimedia.databinding.ActivityMainBinding
 import es.programacionmultimedia.domain.usecase.GetFilmListUseCase
-import es.programacionmultimedia.domain.usecase.GetFilmUseCase
+import es.programacionmultimedia.viewmodels.MainViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -15,12 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var logger: DebugLog
-
-    @Inject
-    lateinit var filmUseCase: GetFilmUseCase
-
-    @Inject
-    lateinit var filmListUseCase: GetFilmListUseCase
 
     private var binding: ActivityMainBinding? = null
 
@@ -37,10 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         binding?.fondo?.setImageResource(R.drawable.fondo)
 
-        binding?.titulo?.text = resources.getString(R.string.titulo)
-
-        binding?.descripcionTexto?.text = resources.getString(R.string.descripcion)
-
         binding?.cc?.text = resources.getString(R.string.CCButtonText)
 
         binding?.pg?.text = resources.getString(R.string.pgAge)
@@ -53,12 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding?.root)
 
-        val film = filmUseCase.execute(0)
-        logger.log(film.title)
+        viewModel.loadFilm()
 
-        val filmListed = filmListUseCase.execute()
-        logger.log(filmListed.joinToString(","))
+        viewModel.film.observe(this) {
 
+            binding?.titulo?.text = it.title
+
+            binding?.descripcionTexto?.text = it.description
+
+        }
 
     }
 

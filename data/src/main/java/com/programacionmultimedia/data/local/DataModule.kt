@@ -1,4 +1,4 @@
-package com.programacionmultimedia.data
+package com.programacionmultimedia.data.local
 
 import com.programacionmultimedia.data.implementation.FilmRepositoryImpl
 import dagger.Binds

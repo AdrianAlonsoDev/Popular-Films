@@ -1,6 +1,6 @@
 package es.programacionmultimedia
 
-import com.programacionmultimedia.data.DataModule
+import com.programacionmultimedia.data.local.DataModule
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent

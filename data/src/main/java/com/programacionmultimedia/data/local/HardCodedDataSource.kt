@@ -1,4 +1,4 @@
-package com.programacionmultimedia.data
+package com.programacionmultimedia.data.local
 
 import es.programacionmultimedia.domain.model.Film
 import javax.inject.Inject

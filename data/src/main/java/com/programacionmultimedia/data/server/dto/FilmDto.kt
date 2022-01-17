@@ -1,4 +1,4 @@
-package com.programacionmultimedia.data.dto
+package com.programacionmultimedia.data.server.dto
 
 import com.google.gson.annotations.SerializedName
 

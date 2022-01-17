@@ -1,7 +1,6 @@
 package com.programacionmultimedia.data.implementation
 
-import com.programacionmultimedia.data.HardCodedDataSource
-import es.programacionmultimedia.domain.model.Film
+import com.programacionmultimedia.data.local.HardCodedDataSource
 import es.programacionmultimedia.domain.repository.FilmRepository
 import javax.inject.Inject
 

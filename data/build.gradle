@@ -36,6 +36,8 @@ android {
 dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation project(path: ':domain')
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     testImplementation 'junit:junit:4.13.2'

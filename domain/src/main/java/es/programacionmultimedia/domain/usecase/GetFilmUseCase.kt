@@ -6,5 +6,5 @@ import javax.inject.Inject
 class GetFilmUseCase @Inject constructor(
     private val filmRepository: FilmRepository
 ) {
-    fun execute(posFilm: Int) = filmRepository.getFilm(posFilm)
+    suspend fun execute(posFilm: Int, language: String) = filmRepository.getFilm(posFilm, language)
 }

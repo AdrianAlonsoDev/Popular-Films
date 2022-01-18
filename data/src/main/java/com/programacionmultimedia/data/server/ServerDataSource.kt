@@ -13,13 +13,13 @@ class ServerDataSource @Inject constructor() {
 
     private val api: ApiManagement = retrofit.create(ApiManagement::class.java)
 
-    suspend fun getFilm(id: Int, language: String): Film {
-        val filmDto = api.getFilm(id, language)
-        val creditsDto = api.getCredits(id)
+    suspend fun getFilm(filmPos: Int, language: String): Film {
+        val filmDto = api.getFilm(filmPos, language)
+        val creditsDto = api.getCredits(filmPos)
 
         val director = creditsDto.cast.firstOrNull { it.department == "Directoring" }?.name ?: ""
         val image = "https://image.tmdb.org/t/p/w500${filmDto.imageUrl}"
 
-        return Film(filmDto.title, filmDto.imageUrl, director, filmDto.description, filmDto.rating)
+        return Film(filmDto.title, "", filmDto.description, director, filmDto.rating, image, "")
     }
 }

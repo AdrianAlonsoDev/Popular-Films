@@ -13,11 +13,15 @@ const val API_KEY = "b8b87da2c33d192d5ad7f84fca99de9b"
 interface ApiManagement {
 
     @GET("movie/{id}")
-    suspend fun  getFilm(@Path("id") filmdId: Int,
-                         @Query("language") language: String,
-                         @Query("api_key") apiKey: String = API_KEY): FilmDto
+    suspend fun getFilm(
+        @Path("id") filmId: Int,
+        @Query("language") language: String,
+        @Query("api_key") apiKey: String = API_KEY
+    ): FilmDto
 
     @GET("movie/{id}/credits")
-    suspend fun  getCredits(@Path("id") filmdId: Int,
-                         @Query("api_key") apiKey: String = API_KEY): CreditsDto
+    suspend fun getCredits(
+        @Path("id") filmId: Int,
+        @Query("api_key") apiKey: String = API_KEY
+    ): CreditsDto
 }

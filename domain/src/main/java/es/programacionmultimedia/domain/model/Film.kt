@@ -8,8 +8,8 @@ data class Film(
     val title: String,
     val genre: String,
     val description: String,
-    val director: String,
+    val director: String?,
     val rating: Double,
-    val imageUrl: String,
-    val trailerUrl: String,
+    val imageUrl: String?,
+    val trailerUrl: String?,
     )

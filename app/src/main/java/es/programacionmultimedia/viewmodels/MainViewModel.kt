@@ -21,13 +21,15 @@ class MainViewModel @Inject constructor(
 
     fun loadFilm() {
         val language = Locale.getDefault().language
+
         job = CoroutineScope(Dispatchers.IO).launch {
             val loadedFilm = useCase.execute(600, language)
             withContext(Dispatchers.Main) {
                 loadedFilm?.let {
                     filmLiveData.value = FilmDataView(
                         it.title,
-                        it.description
+                        it.description,
+                        it.imageUrl
                     )
                 }
             }

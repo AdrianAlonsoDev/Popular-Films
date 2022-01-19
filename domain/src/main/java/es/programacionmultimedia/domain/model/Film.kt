@@ -12,4 +12,4 @@ data class Film(
     val rating: Double,
     val imageUrl: String?,
     val trailerUrl: String?,
-    )
+)

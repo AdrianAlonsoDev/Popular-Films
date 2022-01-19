@@ -1,9 +1,9 @@
 package es.programacionmultimedia
 
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityMainBinding

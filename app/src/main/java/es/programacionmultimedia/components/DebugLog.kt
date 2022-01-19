@@ -9,6 +9,7 @@ class DebugLog @Inject constructor() {
     fun log(message: String) {
         Log.d("[DEBUG] ", message)
     }
+
     fun logError(message: String) {
         Log.d("[ERROR] ", message)
     }

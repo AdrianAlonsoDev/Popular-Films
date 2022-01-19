@@ -8,8 +8,4 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 @Module(includes = [DataModule::class])
 
-class AppModule {
-
-
-
-}
+class AppModule

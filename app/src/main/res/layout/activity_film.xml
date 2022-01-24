@@ -145,15 +145,17 @@
             <TextView
                 android:id="@+id/descripcionTexto"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
+                android:maxLines="7"
                 android:textColor="@color/grisClaro"
-                app:layout_constraintBottom_toTopOf="@+id/comprarBoton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/descripcion" />
+
 
             <android.widget.Button
                 android:id="@+id/comprarBoton"
@@ -161,17 +163,18 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/botonamarillo"
                 android:textColor="@color/amarillo"
-                tools:layout_editor_absoluteX="229dp"
-                tools:layout_editor_absoluteY="166dp"
+                app:layout_constraintEnd_toEndOf="@+id/descripcionTexto"
+                app:layout_constraintTop_toTopOf="@+id/alquilarBoton"
                 tools:text="@string/rent" />
 
             <android.widget.Button
                 android:id="@+id/alquilarBoton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:background="@color/amarillo"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="166dp"
+                app:layout_constraintStart_toStartOf="@+id/descripcionTexto"
+                app:layout_constraintTop_toBottomOf="@+id/descripcionTexto"
                 tools:text="@string/buy" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

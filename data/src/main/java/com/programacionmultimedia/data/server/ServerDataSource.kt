@@ -18,9 +18,25 @@ class ServerDataSource @Inject constructor() {
         val creditsDto = api.getCredits(filmPos)
 
         val director = creditsDto.cast.firstOrNull { it.department == "Directing" }?.name ?: ""
-        val image = "https://image.tmdb.org/t/p/w500${filmDto.imageUrl}"
+        val image = getFullUrl(filmDto.imageUrl)
 
 
         return Film(filmDto.title, "", filmDto.description, director, filmDto.rating, image, "")
     }
+
+    suspend fun getFilmList(language: String): List<Film>? {
+
+        return api.getPopularFilmList(language).resultList.map {
+
+            val image = getFullUrl(it.imageUrl)
+
+            Film(it.title, "", it.description, null, it.rating, it.imageUrl, "")
+        }
+    }
+
+    private fun getFullUrl(imageUrl: String) =
+        imageUrl.let {
+            "https://image.tmdb.org/t/p/w500$it"
+        }
+
 }

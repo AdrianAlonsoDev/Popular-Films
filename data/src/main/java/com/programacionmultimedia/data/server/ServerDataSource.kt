@@ -17,8 +17,9 @@ class ServerDataSource @Inject constructor() {
         val filmDto = api.getFilm(filmPos, language)
         val creditsDto = api.getCredits(filmPos)
 
-        val director = creditsDto.cast.firstOrNull { it.department == "Directoring" }?.name ?: ""
+        val director = creditsDto.cast.firstOrNull { it.department == "Directing" }?.name ?: ""
         val image = "https://image.tmdb.org/t/p/w500${filmDto.imageUrl}"
+
 
         return Film(filmDto.title, "", filmDto.description, director, filmDto.rating, image, "")
     }

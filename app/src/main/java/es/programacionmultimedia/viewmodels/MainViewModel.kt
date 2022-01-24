@@ -29,7 +29,9 @@ class MainViewModel @Inject constructor(
                     filmLiveData.value = FilmDataView(
                         it.title,
                         it.description,
-                        it.imageUrl
+                        it.imageUrl,
+                        it.rating,
+                        it.director
                     )
                 }
             }

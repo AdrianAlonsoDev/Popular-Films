@@ -4,19 +4,20 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import es.programacionmultimedia.components.DebugLog
-import es.programacionmultimedia.databinding.ActivityMainBinding
+import es.programacionmultimedia.databinding.ActivityFilmBinding
 import es.programacionmultimedia.viewmodels.MainViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class FilmActivity : AppCompatActivity() {
 
     @Inject
     lateinit var logger: DebugLog
 
-    private var binding: ActivityMainBinding? = null
+    private var binding: ActivityFilmBinding? = null
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         logger.log("Creating Activity and binding layout")
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityFilmBinding.inflate(layoutInflater)
 
         binding?.portada?.setImageResource(R.drawable.portadados)
 
@@ -50,6 +51,13 @@ class MainActivity : AppCompatActivity() {
             binding?.titulo?.text = it.title
 
             binding?.descripcionTexto?.text = it.description
+
+            binding?.ratingBar?.rating = it.rating.toFloat() / 2
+
+            binding?.portada?.let { it2 -> Glide.with(this).load(it.imageUrl).into(it2) }
+
+            binding?.director?.text = it.director
+
 
         }
 

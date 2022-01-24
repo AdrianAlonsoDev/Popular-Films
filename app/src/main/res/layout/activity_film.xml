@@ -1,16 +1,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollV"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true"
     android:background="@color/extra">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/extra"
-        tools:context=".MainActivity">
+        tools:context=".FilmActivity">
 
 
         <ImageView
@@ -25,7 +26,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/fondo" />
+            tools:srcCompat="@drawable/fondo"
+            tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -53,6 +55,8 @@
                 android:layout_height="160dp"
                 android:layout_marginStart="16dp"
                 android:adjustViewBounds="true"
+                android:background="#000000"
+                android:padding="1dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/portadados" />
@@ -73,41 +77,58 @@
                 android:id="@+id/pg"
                 android:layout_width="45dp"
                 android:layout_height="20dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/botonrojo"
                 android:fontFamily="sans-serif-black"
-                tools:text="PG +18"
                 android:textColor="@color/rojo"
                 android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@+id/titulo"
-                app:layout_constraintTop_toBottomOf="@+id/titulo" />
+                app:layout_constraintStart_toEndOf="@+id/director"
+                app:layout_constraintTop_toBottomOf="@+id/titulo"
+                tools:text="PG +18" />
 
             <android.widget.Button
                 android:id="@+id/cc"
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/botonpg"
                 android:fontFamily="sans-serif-black"
-                tools:text="CC"
                 android:textColor="@color/grisClaro"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/pg"
-                app:layout_constraintTop_toTopOf="@+id/pg" />
+                app:layout_constraintTop_toTopOf="@+id/pg"
+                tools:text="CC" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-10dp"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="82dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="88dp"
+                android:isIndicator="true"
                 android:numStars="5"
-                android:rating="5"
-                android:scaleX="0.3"
-                android:scaleY="0.3"
+                android:rating="4"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:stepSize="1"
                 android:theme="@style/RatingBar"
                 app:layout_constraintEnd_toEndOf="@+id/cc"
-                app:layout_constraintStart_toStartOf="@+id/pg"
+                app:layout_constraintStart_toStartOf="@+id/titulo"
                 app:layout_constraintTop_toBottomOf="@+id/pg" />
+
+            <TextView
+                android:id="@+id/director"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/titulo"
+                app:layout_constraintTop_toTopOf="@+id/pg"
+                tools:text="Jhon Smithz" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -116,8 +137,10 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/descripcionTexto"
@@ -125,33 +148,31 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                tools:text="@string/descripcion"
                 android:textColor="@color/grisClaro"
+                app:layout_constraintBottom_toTopOf="@+id/comprarBoton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/descripcion" />
 
             <android.widget.Button
                 android:id="@+id/comprarBoton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
                 android:background="@drawable/botonamarillo"
-                tools:text="@string/rent"
                 android:textColor="@color/amarillo"
-                app:layout_constraintEnd_toEndOf="@+id/descripcionTexto"
-                app:layout_constraintTop_toTopOf="@+id/alquilarBoton" />
+                tools:layout_editor_absoluteX="229dp"
+                tools:layout_editor_absoluteY="166dp"
+                tools:text="@string/rent" />
 
             <android.widget.Button
                 android:id="@+id/alquilarBoton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
                 android:background="@color/amarillo"
-                tools:text="@string/buy"
-                app:layout_constraintStart_toStartOf="@+id/descripcionTexto"
-                app:layout_constraintTop_toBottomOf="@+id/descripcionTexto" />
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="166dp"
+                tools:text="@string/buy" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

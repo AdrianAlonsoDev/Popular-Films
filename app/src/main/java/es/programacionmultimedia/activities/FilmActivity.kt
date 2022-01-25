@@ -29,9 +29,9 @@ class FilmActivity : AppCompatActivity() {
 
         binding = ActivityFilmBinding.inflate(layoutInflater)
 
-        binding?.portada?.setImageResource(R.drawable.portadados)
+        binding?.poster?.setImageResource(R.drawable.portadados)
 
-        binding?.fondo?.setImageResource(R.drawable.fondo)
+        binding?.posterGrande?.setImageResource(R.drawable.fondo)
 
         binding?.cc?.text = resources.getString(R.string.CCButtonText)
 
@@ -55,7 +55,7 @@ class FilmActivity : AppCompatActivity() {
 
             binding?.ratingBar?.rating = it.rating.toFloat() / 2
 
-            binding?.portada?.let { it2 -> Glide.with(this).load(it.imageUrl).into(it2) }
+            binding?.poster?.let { it2 -> Glide.with(this).load(it.imageUrl).into(it2) }
 
             binding?.director?.text = it.director
 

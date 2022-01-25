@@ -15,7 +15,7 @@
 
 
         <ImageView
-            android:id="@+id/fondo"
+            android:id="@+id/posterGrande"
             android:layout_width="0dp"
             android:layout_height="280dp"
             android:adjustViewBounds="true"
@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fondo">
+            app:layout_constraintTop_toBottomOf="@+id/posterGrande">
 
             <TextView
                 android:id="@+id/titulo"
@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tags" />
 
             <ImageView
-                android:id="@+id/portada"
+                android:id="@+id/poster"
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 tools:text="@string/tags"
                 android:textColor="@color/primario"
-                app:layout_constraintStart_toEndOf="@+id/portada"
+                app:layout_constraintStart_toEndOf="@+id/poster"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.widget.Button

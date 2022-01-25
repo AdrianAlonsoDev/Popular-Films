@@ -5,13 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import es.programacionmultimedia.dataviews.FilmDataView
 import es.programacionmultimedia.domain.usecase.GetFilmUseCase
 import kotlinx.coroutines.*
 import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class FilmViewModel @Inject constructor(
     private val useCase: GetFilmUseCase
 ) : ViewModel(), LifecycleObserver {
 

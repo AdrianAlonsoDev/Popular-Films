@@ -17,7 +17,9 @@ class FilmRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getFilmList(language: String): List<Film>? {
-        TODO("Not yet implemented")
+        return runCatching {
+            serverDataSource.getFilmList(language)
+        }.getOrNull()
     }
 
 

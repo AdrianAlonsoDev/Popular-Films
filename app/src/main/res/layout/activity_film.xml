@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/extra"
-        tools:context=".FilmActivity">
+        tools:context=".activities.FilmActivity">
 
 
         <ImageView

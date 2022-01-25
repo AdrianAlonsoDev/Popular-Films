@@ -1,4 +1,4 @@
-package es.programacionmultimedia.viewmodels
+package es.programacionmultimedia.dataviews
 
 data class FilmDataView(
     val title: String,

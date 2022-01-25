@@ -1,4 +1,4 @@
-package es.programacionmultimedia
+package es.programacionmultimedia.activities
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -6,9 +6,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.R
 import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityFilmBinding
-import es.programacionmultimedia.viewmodels.MainViewModel
+import es.programacionmultimedia.viewmodels.FilmViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -19,7 +20,7 @@ class FilmActivity : AppCompatActivity() {
 
     private var binding: ActivityFilmBinding? = null
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: FilmViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

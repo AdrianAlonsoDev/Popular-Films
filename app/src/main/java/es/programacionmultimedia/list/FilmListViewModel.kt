@@ -1,4 +1,4 @@
-package es.programacionmultimedia.viewmodels
+package es.programacionmultimedia.list
 
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ViewModel

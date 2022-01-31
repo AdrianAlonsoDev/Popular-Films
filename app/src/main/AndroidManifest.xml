@@ -14,11 +14,11 @@
         android:theme="@style/Theme.ProgramacionMultimedia">
 
         <activity
-            android:name=".activities.FilmActivity"
+            android:name="es.programacionmultimedia.detail.FilmActivity"
             android:exported="true"></activity>
 
         <activity
-            android:name=".activities.FilmListActivity"
+            android:name="es.programacionmultimedia.list.FilmListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

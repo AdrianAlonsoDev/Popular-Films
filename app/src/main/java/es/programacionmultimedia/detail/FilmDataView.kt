@@ -1,4 +1,4 @@
-package es.programacionmultimedia.dataviews
+package es.programacionmultimedia.detail
 
 data class FilmDataView(
     val title: String,

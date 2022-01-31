@@ -1,16 +1,19 @@
-package es.programacionmultimedia.activities
+package es.programacionmultimedia.list
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import es.programacionmultimedia.databinding.ActivityFilmListBinding
-import es.programacionmultimedia.viewmodels.FilmListViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class FilmListActivity : AppCompatActivity() {
 
-    private var binding: ActivityFilmListBinding? = null
+    @Inject
+    lateinit var adapter: FilmListAdapter
+
+    private lateinit var binding: ActivityFilmListBinding
 
     private val viewModel: FilmListViewModel by viewModels()
 
@@ -19,7 +22,10 @@ class FilmListActivity : AppCompatActivity() {
 
         binding = ActivityFilmListBinding.inflate(layoutInflater)
 
-        setContentView(binding?.root)
+        setContentView(binding.root)
+
+        binding.root.adapter = adapter
+
 
     }
 

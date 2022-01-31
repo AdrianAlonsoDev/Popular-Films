@@ -1,11 +1,10 @@
-package es.programacionmultimedia.viewmodels
+package es.programacionmultimedia.detail
 
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.programacionmultimedia.dataviews.FilmDataView
 import es.programacionmultimedia.domain.usecase.GetFilmUseCase
 import kotlinx.coroutines.*
 import java.util.*

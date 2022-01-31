@@ -1,4 +1,4 @@
-package es.programacionmultimedia.activities
+package es.programacionmultimedia.detail
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -9,7 +9,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import es.programacionmultimedia.R
 import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityFilmBinding
-import es.programacionmultimedia.viewmodels.FilmViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -18,7 +17,7 @@ class FilmActivity : AppCompatActivity() {
     @Inject
     lateinit var logger: DebugLog
 
-    private var binding: ActivityFilmBinding? = null
+    private lateinit var binding: ActivityFilmBinding
 
     private val viewModel: FilmViewModel by viewModels()
 
@@ -29,35 +28,35 @@ class FilmActivity : AppCompatActivity() {
 
         binding = ActivityFilmBinding.inflate(layoutInflater)
 
-        binding?.poster?.setImageResource(R.drawable.portadados)
+        binding.poster.setImageResource(R.drawable.portadados)
 
-        binding?.posterGrande?.setImageResource(R.drawable.fondo)
+        binding.posterGrande.setImageResource(R.drawable.fondo)
 
-        binding?.cc?.text = resources.getString(R.string.CCButtonText)
+        binding.cc.text = resources.getString(R.string.CCButtonText)
 
-        binding?.pg?.text = resources.getString(R.string.pgAge)
+        binding.pg.text = resources.getString(R.string.pgAge)
 
-        binding?.tags?.text = resources.getString(R.string.tags)
+        binding.tags.text = resources.getString(R.string.tags)
 
-        binding?.alquilarBoton?.text = resources.getString(R.string.rent)
+        binding.alquilarBoton.text = resources.getString(R.string.rent)
 
-        binding?.comprarBoton?.text = resources.getString(R.string.buy)
+        binding.comprarBoton.text = resources.getString(R.string.buy)
 
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
         viewModel.loadFilm()
 
         viewModel.film.observe(this) {
 
-            binding?.titulo?.text = it.title
+            binding.titulo.text = it.title
 
-            binding?.descripcionTexto?.text = it.description
+            binding.descripcionTexto.text = it.description
 
-            binding?.ratingBar?.rating = it.rating.toFloat() / 2
+            binding.ratingBar.rating = it.rating.toFloat() / 2
 
-            binding?.poster?.let { it2 -> Glide.with(this).load(it.imageUrl).into(it2) }
+            binding.poster.let { it2 -> Glide.with(this).load(it.imageUrl).into(it2) }
 
-            binding?.director?.text = it.director
+            binding.director.text = it.director
 
 
         }
@@ -91,9 +90,6 @@ class FilmActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         logger.log("Activity was destroyed and Layout binding unlinked")
-
-        binding = null
-
         super.onDestroy()
     }
 

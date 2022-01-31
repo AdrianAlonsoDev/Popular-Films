@@ -27,6 +27,7 @@ class FilmViewModel @Inject constructor(
             withContext(Dispatchers.Main) {
                 loadedFilm?.let {
                     filmLiveData.value = FilmDataView(
+                        it.id,
                         it.title,
                         it.description,
                         it.imageUrl,

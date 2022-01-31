@@ -21,17 +21,30 @@ class ServerDataSource @Inject constructor() {
         val image = getFullUrl(filmDto.imageUrl)
 
 
-        return Film(filmDto.title, "", filmDto.description, director, filmDto.rating, image, "")
+        return Film(
+            filmDto.id,
+            filmDto.title,
+            "",
+            filmDto.description,
+            director,
+            filmDto.rating,
+            image,
+            ""
+        )
     }
 
     suspend fun getFilmList(language: String): List<Film>? {
+        try {
+            return api.getPopularFilmList(language).resultList.map {
 
-        return api.getPopularFilmList(language).resultList.map {
+                val image = getFullUrl(it.imageUrl)
 
-            val image = getFullUrl(it.imageUrl)
-
-            Film(it.title, "", it.description, null, it.rating, it.imageUrl, "")
+                Film(it.id, it.title, "", it.description, null, it.rating, image, "")
+            }
+        } catch (e: Exception) {
+            e
         }
+        return null
     }
 
     private fun getFullUrl(imageUrl: String) =

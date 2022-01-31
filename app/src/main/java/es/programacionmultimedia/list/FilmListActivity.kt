@@ -26,6 +26,12 @@ class FilmListActivity : AppCompatActivity() {
 
         binding.root.adapter = adapter
 
+        viewModel.loadFilmList()
+
+        viewModel.filmList.observe(this) {
+            adapter.submitList(it)
+        }
+
 
     }
 

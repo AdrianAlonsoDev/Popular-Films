@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgramacionMultimedia">
-
-        <activity
-            android:name="es.programacionmultimedia.detail.FilmActivity"
-            android:exported="true"></activity>
-
         <activity
             android:name="es.programacionmultimedia.list.FilmListActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name="es.programacionmultimedia.detail.FilmActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

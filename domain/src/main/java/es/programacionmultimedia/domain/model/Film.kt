@@ -5,6 +5,7 @@ package es.programacionmultimedia.domain.model
  * Class is data class type, because otherwise it could fail when comparing objects.
  */
 data class Film(
+    val id: Int,
     val title: String,
     val genre: String,
     val description: String,

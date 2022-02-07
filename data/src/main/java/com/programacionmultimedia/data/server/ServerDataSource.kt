@@ -13,12 +13,16 @@ class ServerDataSource @Inject constructor() {
 
     private val api: ApiManagement = retrofit.create(ApiManagement::class.java)
 
-    suspend fun getFilm(filmPos: Int, language: String): Film {
-        val filmDto = api.getFilm(filmPos, language)
-        val creditsDto = api.getCredits(filmPos)
+    suspend fun getFilm(filmId: Int, language: String): Film {
+        val filmDto = api.getFilm(filmId, language)
+        val creditsDto = api.getCredits(filmId)
 
-        val director = creditsDto.cast.firstOrNull { it.department == "Directing" }?.name ?: ""
+        val director = creditsDto.cast.firstOrNull { it.department == "Directing" }?.name ?: "Placeholder"
         val image = getFullUrl(filmDto.imageUrl)
+
+        val video = api.getVideos(filmId, language).results.filter {
+            it.site == "YouTube"
+        }.firstOrNull{it.type == "Trailer"}?.id
 
 
         return Film(
@@ -29,7 +33,7 @@ class ServerDataSource @Inject constructor() {
             director,
             filmDto.rating,
             image,
-            ""
+            video
         )
     }
 
@@ -39,7 +43,7 @@ class ServerDataSource @Inject constructor() {
 
                 val image = getFullUrl(it.imageUrl)
 
-                Film(it.id, it.title, "", it.description, null, it.rating, image, "")
+                Film(it.id, it.title, "", it.description, null, it.rating, image, null)
             }
         } catch (e: Exception) {
             e

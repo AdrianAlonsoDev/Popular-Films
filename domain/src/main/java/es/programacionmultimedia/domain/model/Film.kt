@@ -12,5 +12,5 @@ data class Film(
     val director: String?,
     val rating: Double,
     val imageUrl: String?,
-    val trailerUrl: String?,
+    val trailerId: String?
 )

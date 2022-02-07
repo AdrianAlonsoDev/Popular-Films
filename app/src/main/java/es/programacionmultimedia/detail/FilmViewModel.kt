@@ -32,7 +32,8 @@ class FilmViewModel @Inject constructor(
                         it.description,
                         it.imageUrl,
                         it.rating,
-                        it.director
+                        it.director,
+                        it.trailerId
                     )
                 }
             }

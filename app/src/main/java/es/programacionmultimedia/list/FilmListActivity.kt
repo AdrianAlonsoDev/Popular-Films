@@ -1,10 +1,13 @@
 package es.programacionmultimedia.list
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityFilmListBinding
+import es.programacionmultimedia.detail.FilmActivity
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -12,6 +15,9 @@ class FilmListActivity : AppCompatActivity() {
 
     @Inject
     lateinit var adapter: FilmListAdapter
+
+    @Inject
+    lateinit var logger: DebugLog
 
     private lateinit var binding: ActivityFilmListBinding
 
@@ -32,6 +38,11 @@ class FilmListActivity : AppCompatActivity() {
             adapter.submitList(it)
         }
 
+        adapter.callback = {
+            logger.log("Click en película: $")
+            val filmActivityIntent = Intent(this, FilmActivity::class.java)
+            startActivity(filmActivityIntent)
+        }
 
     }
 

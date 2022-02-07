@@ -11,8 +11,12 @@ import javax.inject.Inject
 
 open class FilmViewHolder(val binding: RcFilmListBinding) : RecyclerView.ViewHolder(binding.root)
 
+typealias OnMessageClick = (FilmOverviewDataView) -> Unit
+
 class FilmListAdapter @Inject constructor() :
     ListAdapter<FilmOverviewDataView, FilmViewHolder>(diffUtil) {
+
+
     companion object {
 
         private val diffUtil = object : DiffUtil.ItemCallback<FilmOverviewDataView>() {
@@ -33,6 +37,8 @@ class FilmListAdapter @Inject constructor() :
         }
     }
 
+    var callback: OnMessageClick? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder =
         object : FilmViewHolder(
             RcFilmListBinding.inflate(
@@ -48,5 +54,8 @@ class FilmListAdapter @Inject constructor() :
         holder.binding.tituloPeliculaRC.text = film.title
         Glide.with(holder.binding.posterImageRC).load(film.imageUrl)
             .into(holder.binding.posterImageRC)
+        holder.binding.root.setOnClickListener {
+            callback?.invoke(film)
+        }
     }
 }

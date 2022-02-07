@@ -14,6 +14,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class FilmActivity : AppCompatActivity() {
 
+    companion object {
+        const val FILM_ID = "ID"
+    }
+
     @Inject
     lateinit var logger: DebugLog
 
@@ -44,7 +48,9 @@ class FilmActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        viewModel.loadFilm()
+        val id = intent?.extras?.getInt(FILM_ID)?: 512195
+
+        viewModel.loadFilm(id)
 
         viewModel.film.observe(this) {
 

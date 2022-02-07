@@ -41,6 +41,7 @@ class FilmListActivity : AppCompatActivity() {
         adapter.callback = {
             logger.log("Click en película: $")
             val filmActivityIntent = Intent(this, FilmActivity::class.java)
+            filmActivityIntent.putExtra(FilmActivity.FILM_ID, it.id)
             startActivity(filmActivityIntent)
         }
 

@@ -20,8 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:gravity="center"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/posterImageRC"
+        app:layout_constraintStart_toStartOf="@+id/posterImageRC"
         app:layout_constraintTop_toBottomOf="@+id/posterImageRC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -109,9 +109,8 @@
                 android:layout_marginEnd="88dp"
                 android:isIndicator="true"
                 android:numStars="5"
-                android:rating="4"
-                android:scaleX="0.6"
-                android:scaleY="0.6"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
                 android:stepSize="1"
                 android:theme="@style/RatingBar"
                 app:layout_constraintEnd_toEndOf="@+id/cc"
@@ -158,17 +157,17 @@
 
 
             <android.widget.Button
-                android:id="@+id/comprarBoton"
+                android:id="@+id/rentBoton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botonamarillo"
                 android:textColor="@color/amarillo"
                 app:layout_constraintEnd_toEndOf="@+id/descripcionTexto"
-                app:layout_constraintTop_toTopOf="@+id/alquilarBoton"
+                app:layout_constraintTop_toTopOf="@+id/trailerBoton"
                 tools:text="@string/rent" />
 
             <android.widget.Button
-                android:id="@+id/alquilarBoton"
+                android:id="@+id/trailerBoton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

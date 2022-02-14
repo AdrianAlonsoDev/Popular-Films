@@ -6,5 +6,6 @@ data class FilmDataView(
     val description: String,
     val imageUrl: String?,
     val rating: Double,
-    val director: String?
+    val director: String?,
+    val videoId: String?
 )

@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityFilmListBinding
+import es.programacionmultimedia.debug.DebugLog
 import es.programacionmultimedia.detail.FilmActivity
 import javax.inject.Inject
 

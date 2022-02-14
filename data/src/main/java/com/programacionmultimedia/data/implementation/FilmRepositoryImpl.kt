@@ -16,18 +16,22 @@ class FilmRepositoryImpl @Inject constructor(
             val filmFromServer = serverDataSource.getFilm(filmPos, language)
             databaseDataSource.updateFilmList(listOf(filmFromServer))
             filmFromServer
-        }.getOrNull() ?: databaseDataSource.getFilm(filmPos)
+        }.getOrNull() ?: kotlin.run {
+            databaseDataSource.getFilm(filmPos)
+        }
 
     }
 
-    override suspend fun getFilmList(language: String): List<Film>? {
+    override suspend fun getFilmList(language: String): List<Film> {
         return runCatching {
             val filmListFromServer = serverDataSource.getFilmList(language)
             databaseDataSource.clearFilmList()
             databaseDataSource.updateFilmList(filmListFromServer ?: emptyList())
 
             filmListFromServer
-        }.getOrNull() ?: databaseDataSource.getFilmList()
+        }.getOrNull() ?: kotlin.run {
+            databaseDataSource.getFilmList()
+        }
     }
 
 

@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import es.programacionmultimedia.R
-import es.programacionmultimedia.components.DebugLog
 import es.programacionmultimedia.databinding.ActivityFilmBinding
+import es.programacionmultimedia.debug.DebugLog
 import javax.inject.Inject
 
 @AndroidEntryPoint

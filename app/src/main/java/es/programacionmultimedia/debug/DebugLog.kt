@@ -1,4 +1,4 @@
-package es.programacionmultimedia.components
+package es.programacionmultimedia.debug
 
 import android.util.Log
 import javax.inject.Inject

@@ -28,6 +28,11 @@
                 android:value=".list.FilmListActivity" />
         </activity>
 
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
 
     </application>
 

@@ -6,7 +6,7 @@ import androidx.room.*
 interface FilmDao {
 
     @Query("SELECT * FROM FilmEntity")
-    suspend fun getFilms(): List<FilmEntity>
+    suspend fun getFilmList(): List<FilmEntity>
 
     @Query("SELECT * FROM FilmEntity WHERE id LIKE :filmID")
     suspend fun getFilm(filmID: Int): FilmEntity?

@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import es.programacionmultimedia.domain.repository.FilmRepository
 
 @InstallIn(SingletonComponent::class) //Busca la clase ya compilada de Activity
-@Module //Como si instalaramos un plugin en una Activiy para poder usar objetos de este módulo.
+@Module(includes = []) //Como si instalaramos un plugin en una Activiy para poder usar objetos de este módulo.
 abstract class DataModule {
 
     @Binds

@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import es.programacionmultimedia.databinding.RcFilmListBinding
+import es.programacionmultimedia.databinding.FilmListItemBinding
 import javax.inject.Inject
 
-open class FilmViewHolder(val binding: RcFilmListBinding) : RecyclerView.ViewHolder(binding.root)
+open class FilmViewHolder(val binding: FilmListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 typealias OnMessageClick = (FilmOverviewDataView) -> Unit
 
@@ -41,7 +41,7 @@ class FilmListAdapter @Inject constructor() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder =
         object : FilmViewHolder(
-            RcFilmListBinding.inflate(
+            FilmListItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

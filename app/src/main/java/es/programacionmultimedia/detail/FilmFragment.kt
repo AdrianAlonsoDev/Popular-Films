@@ -51,8 +51,6 @@ class FilmFragment : Fragment() {
 
         binding.tags.text = resources.getString(R.string.tags)
 
-        binding.rentBoton.text = resources.getString(R.string.rent)
-
         binding.trailerBoton.text = resources.getString(R.string.buy)
 
         val id = arguments?.getInt(FILM_ID) ?: 512195

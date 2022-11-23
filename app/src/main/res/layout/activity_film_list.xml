@@ -8,7 +8,7 @@
     android:scrollbars="vertical"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     app:spanCount="2"
-    android:background=""
+    android:background="@null"
     tools:listitem="@layout/film_list_item">
 
 </androidx.recyclerview.widget.RecyclerView>

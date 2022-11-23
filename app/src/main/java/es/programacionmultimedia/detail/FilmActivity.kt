@@ -45,8 +45,6 @@ class FilmActivity : AppCompatActivity() {
 
         binding.tags.text = resources.getString(R.string.tags)
 
-        binding.rentBoton.text = resources.getString(R.string.rent)
-
         binding.trailerBoton.text = resources.getString(R.string.buy)
 
         setContentView(binding.root)
